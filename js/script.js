@@ -1,9 +1,10 @@
-/*const profileButton = document.getElementById("profile-button");
+const profileButton = document.getElementById("profile-button");
 const objectiveButton = document.getElementById("objective-button");
 const technicalSkillsButton = document.getElementById(
   "technical-skills-button"
 );
 
+/*
 const profileSection = document.getElementById("profile-section");
 const objectiveSection = document.getElementById("objective-section");
 const technicalSkillsSection = document.getElementById(
@@ -33,6 +34,10 @@ const allSections = navConfig.map((config) =>
   document.getElementById(config.sectionId)
 );
 
+const allButtons = navConfig.map((config) =>
+  document.getElementById(config.buttonId)
+);
+
 // Main navigation function
 function initializeNavigation(config) {
   config.forEach(({ buttonId, sectionId }) => {
@@ -42,9 +47,11 @@ function initializeNavigation(config) {
     button.addEventListener("click", () => {
       // Remove 'active' from ALL sections
       allSections.forEach((section) => section.classList.remove("active"));
+      allButtons.forEach((button) => button.classList.remove("active"));
 
       // Add 'active' to the clicked section
       targetSection.classList.add("active");
+      button.classList.add("active");
     });
   });
 }
@@ -87,14 +94,15 @@ function displayCv(work, education) {
     
     <span class="cv-title">${work.title}</span>
     <div class="cv-company-container">
-    <span class="cv-company">${work.company}</span>
+    <span class="cv-company"><i class="fa-solid fa-building"></i>${work.company}</span>
     <span class="cv-image"><img src="${work.img}"></span>
     </div>
     <div class="cv-meta-container">
     <span class="cv-location"><i class="fa-solid fa-location-dot"></i>${work.location}</span>
     <span class="cv-year"><i class="fa-regular fa-calendar"></i>${work.fromYear} - ${work.toYear}</span>
     </div>
-    <span class="cv-description">${work.description}</span>
+    <button class="cv-toggle-button" id="cv-toggle-button">Expand</button>
+    <span class="cv-description cv-toggle-content hidden">${work.description}</span>
     
     `;
     workList.appendChild(li);
@@ -106,17 +114,29 @@ function displayCv(work, education) {
     
     <span class="cv-title">${education.title}</span>
     <div class="cv-company-container">
-    <span class="cv-company">${education.school}</span>
+    <span class="cv-company"><i class="fa-solid fa-building"></i>${education.school}</span>
     <span class="cv-image"><img src="${education.img}"></span>
     </div>
     <div class="cv-meta-container">
     <span class="cv-location"><i class="fa-solid fa-location-dot"></i>${education.location}</span>
     <span class="cv-year"><i class="fa-regular fa-calendar"></i>${education.fromYear} - ${education.toYear}</span>
     </div>
-    <span class="cv-description">${education.description}</span>
+    <button class="cv-toggle-button" id="cv-toggle-button">Expand</button>
+    <span class="cv-description cv-toggle-content hidden">${education.description}</span>
     
     `;
     educationList.appendChild(li);
+  });
+
+  document.querySelectorAll(".cv-toggle-button").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const content = btn.nextElementSibling;
+
+      content.classList.toggle("hidden");
+      btn.textContent = content.classList.contains("hidden")
+        ? "Show Details"
+        : "Hide Details";
+    });
   });
 }
 
@@ -133,6 +153,12 @@ function showLoadingState() {
     `;
   }
 }
+
+const projectImages = {
+  "Listening-Party-2": "/img/projects/listening-party.png",
+  "u01---Landing-Page": "/img/projects/u01.png",
+  "Pig-Game-JS": "/img/projects/pig-game.png",
+};
 
 async function getFeaturedRepos(username, repoNames) {
   showLoadingState();
@@ -177,7 +203,11 @@ async function getFeaturedRepos(username, repoNames) {
 }
 
 // Usage - just list the repos you want to show
-getFeaturedRepos("snudde", ["Listening-Party-2", "u01---Landing-Page"]);
+getFeaturedRepos("snudde", [
+  "Listening-Party-2",
+  "u01---Landing-Page",
+  "Pig-Game-JS",
+]);
 
 function displayProjects(repos) {
   const projectList = document.getElementById("project-list");
@@ -200,15 +230,25 @@ function displayProjects(repos) {
     const li = document.createElement("li");
     li.classList.add("project-item");
 
+    // Get image for this project, or use default
+    const imageSrc = projectImages[repo.name] || "/images/default-project.png";
+
     // Format the update date
     const updatedDate = new Date(repo.updated_at).toLocaleDateString("sv-SE");
 
     li.innerHTML = `
+    <a href="${repo.html_url}" target="_blank" rel="noopener noreferrer">
+    <div class="project-image-wrapper">
+      <img src="${imageSrc}" alt="${
+      repo.name
+    } screenshot" class="project-image" onerror="this.style.display='none'">
+    </div>
+      <div class="project-info-wrapper">
       <div class="project-header">
         <h3 class="project-title">
-          <a href="${repo.html_url}" target="_blank" rel="noopener noreferrer">
+          
             ${repo.name}
-          </a>
+          
         </h3>
         ${
           repo.homepage
@@ -248,6 +288,7 @@ function displayProjects(repos) {
           <i class="fa-regular fa-calendar"></i> ${updatedDate}
         </span>
       </div>
+      </div>
       
       ${
         repo.topics && repo.topics.length > 0
@@ -257,6 +298,7 @@ function displayProjects(repos) {
             .map((topic) => `<span class="topic-tag">${topic}</span>`)
             .join("")}
         </div>
+        </a>
       `
           : ""
       }
@@ -277,36 +319,3 @@ function displayErrorMessage() {
     `;
   }
 }
-function typeCode(text, elementId, speed = 50) {
-  const element = document.getElementById(elementId);
-  let index = 0;
-
-  function type() {
-    if (index < text.length) {
-      element.textContent += text.charAt(index);
-      index++;
-      setTimeout(type, speed);
-    } else {
-      // Optional: Wait then show rendered version
-      setTimeout(() => {
-        element.style.display = "none";
-
-        // Create and show the actual h1
-        const header = document.createElement("div");
-        header.innerHTML = text;
-        element.parentNode.insertBefore(header, element);
-      }, 800);
-    }
-  }
-
-  type();
-}
-
-// Usage
-document.addEventListener("DOMContentLoaded", () => {
-  typeCode(
-    '<h1 class="main-page-header">Kalle Salomonsson</h1><br><p>Fullstack Web Developer',
-    "code-display",
-    60
-  );
-});

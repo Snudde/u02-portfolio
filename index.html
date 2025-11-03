@@ -1,81 +1,162 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://kit.fontawesome.com/2090fae52f.js"
+      crossorigin="anonymous"
+    ></script>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://kit.fontawesome.com/2090fae52f.js" crossorigin="anonymous"></script>
-
-
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/style.css" />
 
     <title>u02 - Portfolio - Kalle Salomonsson</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <main>
+      <div class="hero-wrapper">
+        <div class="hero-section">
+          <div class="profile-background-container">
+            <img src="/img/profile.png" class="profile-image" />
+          </div>
+          <div class="hero-intro-text">
+            <div class="h1-wrapper">
+              <h1>Kalle Salomonsson</h1>
+              <span>Fullstack Javascript Developer</span>
+            </div>
 
-        <pre id="code-display" class="typing-code"></pre>
-        <div class="intro-section">
-            <div class="profile-image-section">
-
-            </div>
-            <img src="/img/profile.png" class="profile-image">
-            <p class="intro-text">Welcome to my portfolio page! Here you can find information about my work experience
-                and education.</p>
-            <div class="intro-buttons-section">
-                <a href="#" class="intro-button" id="profile-button"><i class="fa-regular fa-user"></i></a>
-                <a href="#" class="intro-button" id="objective-button"><i class="fa-solid fa-bullseye"></i></a>
-                <a href="#" class="intro-button" id="technical-skills-button"><i class="fa-solid fa-code"></i></a>
-                <a href="#" class="intro-button" id="cv-button"><i class="fa-regular fa-file"></i></a>
-                <a href="#" class="intro-button" id="projects-button"><i class="fa-brands fa-github"></i></a>
-            </div>
-        </div>
-        <div class="display-content-section">
-            <div class="profile-section" id="profile-section">
-                <p>Certified frontend developer currently studying Fullstack JavaScript development at Chas Academy,
-                    focused on
-                    modern web technologies such as JavaScript, TypeScript, React, Vue, Node.js, databases, CI/CD, Agile
-                    methods,
-                    and UX fundamentals. Over seven years of professional experience in web development, including more
-                    than 200
-                    website launches and management responsibility for 500 clients. Creative team player passionate
-                    about customer
-                    collaboration and aesthetically pleasing digital experiences</p>
-            </div>
-            <div class="objective-section" id="objective-section">
-                <p>Seeking an internship opportunity (LIA) to apply and expand my fullstack JavaScript skills in a
-                    professional web
-                    development environment.
-                </p>
-            </div>
-            <div class="technical-skills-section" id="technical-skills-section">
-                <ul>
-                    <li>Frontend: HTML, CSS, JavaScript, React, Vue</li>
-                    <li>Backend: Node.js, SQL</li>
-                    <li>CMS: WordPress, EPiServer</li>
-                    <li>Analytics: Google Analytics 4, Google Tag Manager, Matomo</li>
-                    <li>DevOps: DNS, CI/CD, Version Control (Git)</li>
-                    <li>Tools: Zeplin, Freshdesk</li>
-                    <li>Other: SEO, Cookie consent management (CMPs), Troubleshooting, Agile methods</li>
-                </ul>
-            </div>
-        </div>
-        <div class="cv-section" id="cv-section">
-            <h2>CV</h2>
-            <ul id="work-list">
-
+            <p>Hey! Welcome to my portfolio.</p>
+          </div>
+          <div class="hero-contact-container">
+            <ul>
+              <li>
+                <a href="#"><i class="fa-solid fa-square-envelope"></i></a>
+              </li>
+              <li>
+                <a href="#"><i class="fa-solid fa-phone-volume"></i></a>
+              </li>
+              <li>
+                <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+              </li>
+              <li>
+                <a href="#"><i class="fa-brands fa-square-github"></i></a>
+              </li>
             </ul>
-            <ul id="education-list"></ul>
+          </div>
+        </div>
+      </div>
+      <div class="intro-buttons-section">
+        <a href="#" class="intro-button active" id="profile-button"
+          ><i class="fa-regular fa-user"></i
+        ></a>
+        <a href="#" class="intro-button" id="objective-button"
+          ><i class="fa-solid fa-bullseye"></i
+        ></a>
+        <a href="#" class="intro-button" id="technical-skills-button"
+          ><i class="fa-solid fa-code"></i
+        ></a>
+        <a href="#" class="intro-button" id="cv-button"
+          ><i class="fa-regular fa-file"></i
+        ></a>
+        <a href="#" class="intro-button" id="projects-button"
+          ><i class="fa-brands fa-github"></i
+        ></a>
+      </div>
+
+      <div class="display-content-section">
+        <div class="profile-section active" id="profile-section">
+          <p>
+            Certified frontend developer currently studying Fullstack JavaScript
+            development at Chas Academy, focused on modern web technologies such
+            as JavaScript, TypeScript, React, Vue, Node.js, databases, CI/CD,
+            Agile methods, and UX fundamentals. Over seven years of professional
+            experience in web development, including more than 200 website
+            launches and management responsibility for 500 clients. Creative
+            team player passionate about customer collaboration and
+            aesthetically pleasing digital experiences
+          </p>
+        </div>
+        <div class="objective-section" id="objective-section">
+          <p>
+            Seeking an internship opportunity (LIA) to apply and expand my
+            fullstack JavaScript skills in a professional web development
+            environment.
+          </p>
+        </div>
+        <div class="technical-skills-section" id="technical-skills-section">
+          <ul class="skills-list">
+            <div class="skills-row">
+              <li class="skills-container">
+                <span>Frontend:</span>
+                <div class="skills-images">
+                  <img src="img/logos/html-logo.png" />
+                  <img src="/img/logos/css-logo.png" />
+                  <img src="img/logos/javascript-logo.png" />
+                  <img src="img/logos/react-logo.png" />
+                  <img src="/img/logos/typescript-logo.png" />
+                </div>
+              </li>
+              <li class="skills-container">
+                <span>Backend:</span>
+                <div class="skills-images">
+                  <img src="/img/logos/nodejs-logo.png" /><img
+                    src="img/logos/sql-logo.png"
+                  />
+                </div>
+              </li>
+
+              <li class="skills-container">
+                <span>CMS:</span>
+                <div class="skills-images">
+                  <img src="/img/logos/wp-logo.webp" />
+                  <img src="/img/logos/epi-logo.png" />
+                </div>
+              </li>
+            </div>
+            <div class="skills-row">
+              <li class="skills-container">
+                <span>Analytics:</span>
+                <div class="skills-images">
+                  <img src="/img/logos/ga4-logo.webp" /><img
+                    src="/img/logos/gtm-logo.png"
+                  /><img src="/img/logos/matomo-logo.png" />
+                </div>
+              </li>
+              <li class="skills-container">
+                <span>DevOps:</span>
+                <div class="skills-images">
+                  DNS, CI/CD, Version Control (Git)
+                </div>
+              </li>
+              <li class="skills-container">
+                <span>Tools:</span>
+                <div class="skills-images">Zeplin, Freshdesk</div>
+              </li>
+            </div>
+            <div class="skills-row">
+              <li class="skills-container">
+                <span>Other:</span> SEO, Cookie consent management (CMPs),
+                Troubleshooting, Agile methods
+              </li>
+            </div>
+          </ul>
+        </div>
+
+        <div class="cv-section" id="cv-section">
+          <h2>Work</h2>
+          <ul id="work-list"></ul>
+          <h2>Education</h2>
+          <ul id="education-list"></ul>
         </div>
         <div class="projects-section" id="projects-section">
-            <h2>GitHub Projects</h2>
-            <ul id="project-list" class="project-list">
-                <!-- Projects will be inserted here -->
-            </ul>
+          <h2>GitHub Projects</h2>
+          <ul id="project-list" class="project-list">
+            <!-- Projects will be inserted here -->
+          </ul>
         </div>
+      </div>
     </main>
     <script src="/js/script.js"></script>
-</body>
-
+  </body>
 </html>
