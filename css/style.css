@@ -1,0 +1,173 @@
+/* -----------------------------
+   Simple CSS Reset
+----------------------------- */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  height: 100%;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+/*      HERO    */
+.profile-image {
+  width: 260px;
+  background-color: red;
+}
+.typing-code {
+  font-family: "Courier New", monospace;
+  font-size: 18px;
+  color: #333;
+  background: #f5f5f5;
+  padding: 15px;
+  border-radius: 5px;
+  border-left: 3px solid #0366d6;
+  position: relative;
+}
+
+.typing-code::after {
+  content: "|";
+  animation: blink 0.7s infinite;
+}
+
+@keyframes blink {
+  0%,
+  50% {
+    opacity: 1;
+  }
+  51%,
+  100% {
+    opacity: 0;
+  }
+}
+/*           CONTENT INTRO        */
+.profile-section,
+.objective-section,
+.technical-skills-section,
+.cv-section,
+.projects-section {
+  display: none;
+}
+
+.intro-button {
+  padding: 20px;
+  border: 1px solid gray;
+  font-size: 38px;
+}
+
+.profile-section.active,
+.objective-section.active,
+.technical-skills-section.active,
+.cv-section.active,
+.projects-section.active {
+  display: flex;
+}
+
+.intro-section {
+  margin-bottom: 100px;
+  margin-top: 100px;
+}
+
+.intro-text {
+  margin-bottom: 50px;
+}
+
+.projects-section {
+  flex-direction: column;
+}
+
+/*           CV             */
+.cv-section {
+  flex-direction: column;
+}
+
+.cv-work-item,
+.cv-education-item {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  border: 1px solid grey;
+  margin-bottom: 20px;
+}
+
+.cv-image {
+  width: 50px;
+}
+
+.cv-company-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 50px;
+}
+
+.cv-meta-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 50px;
+}
+
+/* -----------------------------
+   Responsive Media Queries
+----------------------------- */
+
+/* Small devices (portrait phones, less than 576px) */
+@media (max-width: 575.98px) {
+  /* Your CSS here */
+}
+
+/* Medium devices (landscape phones/tablets, 576px–767px) */
+@media (min-width: 576px) and (max-width: 767.98px) {
+  /* Your CSS here */
+}
+
+/* Large devices (tablets, 768px–991px) */
+@media (min-width: 768px) and (max-width: 991.98px) {
+  /* Your CSS here */
+}
+
+/* Extra large devices (desktops, 992px–1199px) */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  /* Your CSS here */
+}
+
+/* XXL devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+  /* Your CSS here */
+}

@@ -1,0 +1,61 @@
+{
+  "work": [
+    {
+      "title": "DevOps Specialist",
+      "company": "The Generation",
+      "fromYear": 2022,
+      "toYear": 2024,
+      "location": "Stockholm, Sweden",
+      "description": "Ensured optimal performance and availability for 500 client websites. Managed DNS, site migrations, and implemented analytics tracking using GA4, GTM, and Matomo. Handled version control in Git, WordPress troubleshooting, SEO, and cookie consent management.",
+      "img": "/img/companies/the-generation-logo.png"
+    },
+    {
+      "title": "Customer Relations Manager",
+      "company": "The Generation",
+      "fromYear": 2019,
+      "toYear": 2022,
+      "location": "Stockholm, Sweden",
+      "description": "Developed tools and methods to strengthen client relationships. Handled support requests via Freshdesk, estimated project time and costs, and coordinated further development and troubleshooting on WordPress sites.",
+      "img": "/img/companies/the-generation-logo.png"
+    },
+    {
+      "title": "Frontend Developer",
+      "company": "The Generation",
+      "fromYear": 2017,
+      "toYear": 2019,
+      "location": "Stockholm, Sweden",
+      "description": "Built websites from scratch using HTML, CSS, JavaScript, and WordPress based on Zeplin design templates. Collaborated closely with designers and project managers to deliver tailored digital solutions.",
+      "img": "/img/companies/the-generation-logo.png"
+    }
+  ],
+
+  "education": [
+    {
+      "title": "Fullstack JavaScript Developer",
+      "school": "Chas Academy",
+      "fromYear": 2025,
+      "toYear": "ongoing",
+      "location": "Stockholm, Sweden",
+      "description": "Comprehensive training in JavaScript, Node.js, React, databases, and web development best practices.",
+      "img": "/img/companies/chas-academy-logo.png"
+    },
+    {
+      "title": "Frontend Developer",
+      "school": "Nackademin Yrkeshögskola",
+      "fromYear": 2015,
+      "toYear": 2017,
+      "location": "Stockholm, Sweden",
+      "description": "Intensive program covering HTML, CSS, JavaScript, jQuery, and responsive web design principles.",
+      "img": "/img/companies/nackademin-logo.png"
+    },
+    {
+      "title": "EPiServer Developer",
+      "school": "Nackademin Yrkeshögskola",
+      "fromYear": 2013,
+      "toYear": 2015,
+      "location": "Stockholm, Sweden",
+      "description": "Specialized training in EPiServer CMS, .NET framework, C#, and web application development.",
+      "img": "/img/companies/nackademin-logo.png"
+    }
+  ]
+}
