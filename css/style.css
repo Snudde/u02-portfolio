@@ -49,32 +49,50 @@ ol {
 .display-content-section {
   width: 90%;
   margin: 0 auto;
+  max-width: 1500px;
+}
+
+.display-content-section {
+  margin-top: 50px;
+}
+
+.objective-section,
+.profile-section,
+.technical-skills-section {
+  flex-direction: column;
+}
+
+body {
+  background-color: #f5f5f7;
 }
 /*      HERO    */
+
 .profile-image {
   width: 260px;
-  background-color: red;
+  z-index: 5;
+  position: relative;
 }
 
 .hero-wrapper {
-  background: red;
+  background: #171623;
 }
 
 .hero-section {
   display: flex;
   align-items: center;
   justify-content: center;
-
+  color: #fff;
   gap: 160px;
 }
 
 .profile-background-container {
   flex: 1;
+  position: relative;
 }
 
 .hero-intro-text {
   flex: 3;
-  /* background: red; */
+  /* background: #00f1ff; */
 }
 
 .hero-contact-container {
@@ -83,6 +101,7 @@ ol {
   justify-content: flex-end;
   display: flex;
   font-size: 30px;
+  color: #3a7cff;
 }
 
 .h1-wrapper {
@@ -91,25 +110,69 @@ ol {
 }
 
 h1 {
-  font-size: 70px;
+  font-size: 40px;
   width: max-content;
+}
+
+h1 {
+  font-family: "Sixtyfour", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+}
+
+p,
+h3,
+span,
+h2 {
+  font-family: "Titillium Web", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+}
+
+h2 {
+  color: #9b6bff;
+  font-size: 44px;
+  font-weight: bold;
+}
+
+p {
+  color: #171623;
+  font-size: 20px;
+}
+
+h3 {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+main {
+  background-color: #f5f5f7;
 }
 
 .hero-contact-container {
   flex: 1;
 }
 
+.hero-section p {
+  color: #fff;
+}
+
 .intro-buttons-section {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: -51px;
+  margin-top: -40px;
+  gap: 10px;
+  border-radius: 15px;
 }
 
 .hero-intro-text span {
   position: absolute;
-  top: 0;
+  top: -30px;
+  border: 1px solid #2ee6a8;
   right: 0;
+  border-radius: 15px;
+  padding: 5px 15px;
 }
 
 /*           CONTENT INTRO        */
@@ -122,14 +185,67 @@ h1 {
 }
 
 .intro-button {
-  padding: 20px;
-  border: 1px solid lightgreen;
+  padding: 9px 14px;
   font-size: 38px;
-  background: green;
+  background: #3a7cff;
+  transition: all 0.2s ease-in-out;
+  color: #fff;
+  border-radius: 15px;
+  position: relative;
+}
+
+.intro-button:hover::before {
+  top: -30px;
+  opacity: 1;
+}
+
+.intro-button.active:before {
+  opacity: 1;
+  top: -30px;
+}
+
+.intro-button:before {
+  content: "Profile";
+  font-family: "Titillium Web", sans-serif;
+  position: absolute;
+  font-size: 18px;
+  top: 0;
+  opacity: 0;
+  width: 100%;
+  left: 0;
+  margin: 0 auto;
+  text-align: center;
+  transition: all 0.2s ease-in-out;
+}
+
+#profile-button:before {
+  content: "Profile";
+}
+
+#objective-button:before {
+  content: "Objective";
+}
+
+#technical-skills-button:before {
+  content: "Skills";
+}
+
+#cv-button:before {
+  content: "Resume";
+}
+
+#projects-button:before {
+  content: "Projects";
+}
+
+.intro-button:hover {
+  transform: scale(1.1);
+  background-color: #9b6bff;
 }
 
 .intro-button.active {
-  background-color: blue;
+  background-color: #9b6bff;
+  transform: scale(1.1);
 }
 
 .profile-section.active,
@@ -153,21 +269,71 @@ h1 {
   flex-direction: column;
 }
 
+.content-split-section {
+  flex-direction: row;
+  display: flex;
+  align-items: center;
+  background-color: #171623;
+  border-radius: 15px;
+}
+
+.split-left {
+  flex: 3;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.content-full-width {
+  margin-bottom: 50px;
+}
+
+.split-right {
+  flex: 2;
+}
+
+.split-right img {
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+}
+
+.split-left p {
+  color: #fff;
+  font-size: 18px;
+  margin: 10px 0;
+}
+
+.content-split-section h3 {
+  color: #2ee6a8;
+}
+
+.content-split-section a {
+  color: #3a7cff;
+  transition: all 0.2s ease-in-out;
+  margin-left: auto;
+}
+
+.content-split-section a:hover {
+  color: #9b6bff;
+}
+
 /* SKILLS SECTION */
 
 .skills-row {
   display: flex;
   flex: 1;
+  gap: 10px;
 }
 
 .skills-container {
   flex: 1;
-  border: 1px solid gray;
+
   display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
   padding: 70px 20px 20px 20px;
+  border-radius: 15px;
 }
 
 .skills-container span {
@@ -176,15 +342,19 @@ h1 {
   font-size: 20px;
 
   width: 100%;
-  background-color: red;
+  background-color: #171623;
+  color: #fff;
   text-align: center;
   padding: 10px;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
 }
 
 .skills-list {
   display: flex;
   flex: 1;
   flex-direction: column;
+  gap: 10px;
 }
 
 .skills-images {
@@ -199,16 +369,12 @@ h1 {
   width: 100px;
 }
 
-.technical-skills-section {
-  justify-content: center;
-  align-items: center;
-}
-
 #work-list,
 #education-list {
   display: flex;
   justify-content: center;
   align-items: flex-start;
+  gap: 10px;
 }
 
 /*           CV             */
@@ -232,15 +398,19 @@ h1 {
   min-height: 220px;
   padding: 20px;
   transition: all 0.2s ease-in-out;
+  border-radius: 15px;
+  background-color: #171623;
+  color: #fff;
 }
 
 .cv-work-item:hover,
 .cv-education-item:hover {
-  background-color: red;
+  /*background-color: #00f1ff;*/
 }
 
 .cv-image {
   width: 50px;
+  background-color: #fff;
 }
 
 .cv-company-container {
@@ -254,7 +424,7 @@ h1 {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-
+  color: #2ee6a8;
   margin-top: auto;
 }
 
@@ -286,23 +456,27 @@ h1 {
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
+  gap: 10px;
 }
 
 .project-item {
   flex: 1;
-  border: 1px solid gray;
   overflow: hidden;
   min-height: 500px;
+  border-radius: 15px;
 }
 
 .project-meta {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  color: #2ee6a8;
 }
 
 .project-info-wrapper {
   padding: 20px;
+  background-color: #171623;
+  color: #fff;
 }
 
 .project-image-wrapper {
@@ -312,6 +486,7 @@ h1 {
 .project-description {
   padding: 10px 0;
   min-height: 100px;
+  color: #fff;
 }
 .project-image {
   width: 100%;

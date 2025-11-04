@@ -46,7 +46,7 @@
       "toYear": 2017,
       "location": "Stockholm, Sweden",
       "description": "Intensive program covering HTML, CSS, JavaScript, jQuery, and responsive web design principles.",
-      "img": "/img/companies/nackademin-logo.png"
+      "img": "/img/companies/nackademin_250x250.jpg"
     },
     {
       "title": "EPiServer Developer",
@@ -55,7 +55,7 @@
       "toYear": 2015,
       "location": "Stockholm, Sweden",
       "description": "Specialized training in EPiServer CMS, .NET framework, C#, and web application development.",
-      "img": "/img/companies/nackademin-logo.png"
+      "img": "/img/companies/nackademin_250x250.jpg"
     }
   ]
 }
