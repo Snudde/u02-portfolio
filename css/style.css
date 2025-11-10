@@ -68,7 +68,8 @@ body {
 /*      HERO    */
 
 .profile-image {
-  width: 260px;
+  width: 236px;
+  height: 336px;
   z-index: 5;
   position: relative;
 }
@@ -82,7 +83,8 @@ body {
   align-items: center;
   justify-content: center;
   color: #fff;
-  gap: 160px;
+
+  height: 336px;
 }
 
 .profile-background-container {
@@ -104,6 +106,16 @@ body {
   color: #3a7cff;
 }
 
+.hero-contact-container li {
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+}
+
+.hero-contact-container li:hover {
+  color: #9b6bff;
+  transform: scale(1.1);
+}
+
 .h1-wrapper {
   position: relative;
   width: max-content;
@@ -123,7 +135,9 @@ h1 {
 p,
 h3,
 span,
-h2 {
+h2,
+label,
+input {
   font-family: "Titillium Web", sans-serif;
   font-weight: 300;
   font-style: normal;
@@ -238,6 +252,10 @@ main {
   content: "Projects";
 }
 
+#contact-button:before {
+  content: "Contact";
+}
+
 .intro-button:hover {
   transform: scale(1.1);
   background-color: #9b6bff;
@@ -277,6 +295,10 @@ main {
   border-radius: 15px;
 }
 
+.content-split-section i {
+  color: #2ee6a8;
+}
+
 .split-left {
   flex: 3;
   padding: 20px;
@@ -304,17 +326,20 @@ main {
 }
 
 .content-split-section h3 {
-  color: #2ee6a8;
+  color: #fff;
 }
 
 .content-split-section a {
-  color: #3a7cff;
+  color: #fff;
   transition: all 0.2s ease-in-out;
   margin-left: auto;
+  background-color: #3a7cff;
+  padding: 5px 10px;
+  border-radius: 15px;
 }
 
 .content-split-section a:hover {
-  color: #9b6bff;
+  background-color: #9b6bff;
 }
 
 /* SKILLS SECTION */
@@ -327,7 +352,7 @@ main {
 
 .skills-container {
   flex: 1;
-
+  border: 1px solid #171623;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -446,8 +471,17 @@ main {
   height: 100%;
   opacity: 0;
   cursor: pointer;
+  background-color: transparent;
   left: 0;
   top: 0;
+  transition: all 0.2s ease-in-out;
+  border: none;
+}
+
+.cv-toggle-button:hover {
+  opacity: 1;
+
+  color: #2ee6a8;
 }
 
 /* PROJECTS */
@@ -499,31 +533,235 @@ main {
   transform: scale(1.1);
 }
 
+.contact-modal-content h3 {
+  font-size: 34px;
+  margin-bottom: 20px;
+}
+
+.contact-modal {
+  display: none;
+  position: fixed;
+  z-index: 6;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.contact-modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  width: 100%;
+  max-width: 800px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 15px;
+  background-color: #171623;
+  color: #fff;
+}
+
+.contact-form input,
+.contact-form textarea {
+  border-radius: 15px;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: none;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none; /* removes browser's focus ring */
+  border: none; /* removes input's own border (if you want) */
+  box-shadow: none; /* removes any shadow highlight */
+}
+
+.contact-modal-content label {
+  margin-bottom: 5px;
+  color: #2ee6a8;
+}
+
+#contact-button {
+  background-color: #2ee6a8;
+}
+
+#contact-button:hover {
+  background-color: #9b6bff;
+  transform: scale(1.1);
+}
+
+.contact-form input[type="submit"] {
+  width: 150px;
+  margin-left: auto;
+  background-color: #3a7cff;
+  border: none;
+  color: #fff;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+}
+
+.contact-form input[type="submit"]:hover {
+  background-color: #9b6bff;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+}
+
+/* The Close Button */
+.close {
+  color: #3a7cff;
+  float: right;
+  font-size: 58px;
+  font-weight: bold;
+  top: -80px;
+  position: absolute;
+  right: 0px;
+  transition: all 0.2s ease-in-out;
+}
+
+.close:hover,
+.close:focus {
+  color: #9b6bff;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+@keyframes shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  20%,
+  60% {
+    transform: translateX(-3px);
+  }
+  40%,
+  80% {
+    transform: translateX(3px);
+  }
+}
+
+.shake {
+  animation: shake 0.3s ease;
+}
 /* -----------------------------
    Responsive Media Queries
 ----------------------------- */
 
-/* Small devices (portrait phones, less than 576px) */
-@media (max-width: 575.98px) {
-  /* Your CSS here */
+/* Extra large devices (desktops, 992px–1199px) */
+@media (max-width: 1199.98px) {
+  h1 {
+    font-size: 30px;
+  }
+
+  .intro-button {
+    font-size: 28px;
+  }
+
+  .intro-buttons-section {
+    margin-top: -30px;
+  }
+
+  .hero-intro-text span {
+    font-size: 14px;
+  }
+  .hero-section {
+    gap: 0;
+  }
+
+  .profile-background-container {
+    flex: 0;
+  }
+
+  .content-split-section {
+    flex-direction: column;
+  }
+  .split-right img {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+  }
+
+  .skills-row {
+    flex-direction: column;
+  }
+
+  .skills-images img {
+    width: 70px;
+  }
+  #work-list,
+  #education-list {
+    flex-direction: column;
+  }
+
+  .project-list {
+    flex-direction: column;
+  }
+
+  .project-item {
+    width: 100%;
+  }
 }
 
 /* Medium devices (landscape phones/tablets, 576px–767px) */
-@media (min-width: 576px) and (max-width: 767.98px) {
-  /* Your CSS here */
+@media (max-width: 676px) {
+  .hero-contact-container {
+    flex: 0;
+    display: none;
+  }
+
+  h1 {
+    font-size: 24px;
+  }
 }
 
-/* Large devices (tablets, 768px–991px) */
-@media (min-width: 768px) and (max-width: 991.98px) {
-  /* Your CSS here */
-}
+@media (max-width: 476px) {
+  h1 {
+    font-size: 20px;
+  }
 
-/* Extra large devices (desktops, 992px–1199px) */
-@media (min-width: 992px) and (max-width: 1199.98px) {
-  /* Your CSS here */
-}
+  .intro-buttons-section {
+    margin-top: -24px;
+    gap: 5px;
+  }
 
-/* XXL devices (large desktops, 1200px and up) */
-@media (min-width: 1200px) {
-  /* Your CSS here */
+  .intro-button {
+    font-size: 18px;
+  }
+
+  .intro-button:before {
+    font-size: 12px;
+  }
+
+  h2 {
+    font-size: 28px;
+  }
+
+  .hero-section p {
+    font-size: 16px;
+  }
+  .hero-intro-text span {
+    top: -40px;
+  }
+
+  .skills-images {
+    gap: 10px;
+  }
+
+  .cv-title {
+    font-size: 18px;
+  }
+
+  .cv-meta-container {
+    font-size: 12px;
+  }
 }

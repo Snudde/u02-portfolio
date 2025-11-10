@@ -29,7 +29,7 @@
             <span>Fullstack Javascript Developer</span>
           </div>
 
-          <p>Hey! Welcome to my portfolio.</p>
+          <p>Hey! I create stuff for the web</p>
         </div>
         <div class="hero-contact-container">
           <ul>
@@ -49,12 +49,15 @@
         </div>
       </div>
     </div>
+
     <div class="intro-buttons-section">
       <a href="#" class="intro-button active" id="profile-button"><i class="fa-regular fa-user"></i></a>
       <a href="#" class="intro-button" id="objective-button"><i class="fa-solid fa-bullseye"></i></a>
       <a href="#" class="intro-button" id="technical-skills-button"><i class="fa-solid fa-code"></i></a>
       <a href="#" class="intro-button" id="cv-button"><i class="fa-regular fa-file"></i></a>
       <a href="#" class="intro-button" id="projects-button"><i class="fa-brands fa-github"></i></a>
+      <a href="#" class="intro-button" id="contact-button"><i class="fa-solid fa-envelope"></i></a>
+
     </div>
 
     <div class="display-content-section">
@@ -75,9 +78,13 @@
         </div>
         <div class="content-split-section">
           <div class="split-left">
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Deleniti, quidem corporis saepe est nulla eius
-              ratione, laboriosam reprehenderit, non illo dicta. Maiores voluptate, quisquam voluptates at distinctio
-              sint a impedit.</p>
+            <h3><i class="fa-solid fa-terminal"></i> Fullstack Development</h3>
+            <p>Certified in Full-Stack Web Development with experience in building responsive front-end and back-end
+              solutions using modern frameworks and databases.</p>
+            <h3><i class="fa-regular fa-face-smile"></i> Customer Relations</h3>
+            <p>Certified in Customer Relations, skilled in communication, client management, and delivering positive,
+              results-driven interactions.</p>
+
           </div>
           <div class="split-right">
             <img src="/img/desk-profile.png" />
@@ -88,10 +95,17 @@
       <div class="objective-section" id="objective-section">
         <div class="content-full-width">
           <h2>My objective</h2>
+          <h3>LIA</h3>
+          <p>I’m looking for an LIA internship in Full-Stack Development to further develop my skills and gain hands-on
+            experience in modern web technologies. I’m passionate about creating efficient, user-friendly applications
+            and learning from experienced developers in a real-world environment.</p>
+
           <h3>Fullstack Javascript studies</h3>
-          <p>Seeking an internship opportunity (LIA) to apply and expand my
-            fullstack JavaScript skills in a professional web development
-            environment.</p>
+          <p>I’m currently studying the Full-Stack Web Development programme at Chas Academy, where I’m learning modern
+            web technologies including JavaScript and TypeScript, building both front-end applications with frameworks
+            such as React and Vue and back-end services using Node.js. I’m also gaining experience in databases, CI/CD,
+            cloud hosting, agile project methods, accessibility and UX — all designed to prepare me for real-world
+            full-stack development.</p>
         </div>
         <div class="content-split-section">
           <div class="split-left">
@@ -185,10 +199,38 @@
       <div class="projects-section" id="projects-section">
         <h2>GitHub Projects</h2>
         <ul id="project-list" class="project-list">
-          <!-- Projects will be inserted here -->
+
         </ul>
       </div>
+
+
+
+      <div id="contact-modal" class="contact-modal">
+
+
+        <div class="contact-modal-content">
+          <span class="close">&times;</span>
+          <h3>Let's talk!</h3>
+          <form action="#" class="contact-form">
+
+            <label for="fname">First Name</label>
+            <input type="text" id="fname" name="firstname" placeholder="Your name..">
+
+            <label for="lname">Last Name</label>
+            <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+
+
+            <label for="subject">Subject</label>
+            <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
+
+            <input type="submit" value="Submit">
+
+          </form>
+        </div>
+
+      </div>
     </div>
+
   </main>
   <script src="/js/script.js"></script>
 </body>

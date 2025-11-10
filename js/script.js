@@ -101,7 +101,7 @@ function displayCv(work, education) {
     <span class="cv-location"><i class="fa-solid fa-location-dot"></i>${work.location}</span>
     <span class="cv-year"><i class="fa-regular fa-calendar"></i>${work.fromYear} - ${work.toYear}</span>
     </div>
-    <button class="cv-toggle-button" id="cv-toggle-button">Expand</button>
+    <button class="cv-toggle-button" id="cv-toggle-button">Show Details</button>
     <span class="cv-description cv-toggle-content hidden">${work.description}</span>
     
     `;
@@ -121,7 +121,7 @@ function displayCv(work, education) {
     <span class="cv-location"><i class="fa-solid fa-location-dot"></i>${education.location}</span>
     <span class="cv-year"><i class="fa-regular fa-calendar"></i>${education.fromYear} - ${education.toYear}</span>
     </div>
-    <button class="cv-toggle-button" id="cv-toggle-button">Expand</button>
+    <button class="cv-toggle-button" id="cv-toggle-button">Show Details</button>
     <span class="cv-description cv-toggle-content hidden">${education.description}</span>
     
     `;
@@ -319,3 +319,33 @@ function displayErrorMessage() {
     `;
   }
 }
+
+const contactModal = document.getElementById("contact-modal");
+const contactBtn = document.getElementById("contact-button");
+const closeModalBtn = document.getElementsByClassName("close")[0];
+
+contactBtn.onclick = function () {
+  contactModal.style.display = "block";
+};
+
+closeModalBtn.onclick = function () {
+  contactModal.style.display = "none";
+};
+
+window.onclick = function (event) {
+  if (event.target == contactModal) {
+    contactModal.style.display = "none";
+  }
+};
+
+setInterval(() => {
+  contactBtn.classList.add("shake");
+
+  contactBtn.addEventListener(
+    "animationend",
+    () => {
+      contactBtn.classList.remove("shake");
+    },
+    { once: true }
+  );
+}, 5000);
