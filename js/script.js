@@ -4,20 +4,6 @@ const technicalSkillsButton = document.getElementById(
   "technical-skills-button"
 );
 
-/*
-const profileSection = document.getElementById("profile-section");
-const objectiveSection = document.getElementById("objective-section");
-const technicalSkillsSection = document.getElementById(
-  "technical-skills-section"
-);
-*/
-/*profileButton.addEventListener("click", function () {
-  profileSection.classList.add("active");
-  objectiveSection.classList.remove("active");
-  technicalSkillsSection.classList.remove("active");
-});*/
-
-// Configuration: Map buttons to their corresponding sections
 const navConfig = [
   { buttonId: "profile-button", sectionId: "profile-section" },
   { buttonId: "objective-button", sectionId: "objective-section" },
@@ -29,7 +15,6 @@ const navConfig = [
   { buttonId: "projects-button", sectionId: "projects-section" },
 ];
 
-// Get all section elements once (better performance)
 const allSections = navConfig.map((config) =>
   document.getElementById(config.sectionId)
 );
@@ -38,55 +23,43 @@ const allButtons = navConfig.map((config) =>
   document.getElementById(config.buttonId)
 );
 
-// Main navigation function
 function initializeNavigation(config) {
   config.forEach(({ buttonId, sectionId }) => {
     const button = document.getElementById(buttonId);
     const targetSection = document.getElementById(sectionId);
 
     button.addEventListener("click", () => {
-      // Remove 'active' from ALL sections
       allSections.forEach((section) => section.classList.remove("active"));
       allButtons.forEach((button) => button.classList.remove("active"));
 
-      // Add 'active' to the clicked section
       targetSection.classList.add("active");
       button.classList.add("active");
     });
   });
 }
 
-// Initialize everything
 initializeNavigation(navConfig);
 
 async function getCv() {
   try {
-    // Väntar in tills datat har hämtats från todos.json
     const response = await fetch("/data/cv.json");
 
-    // response.ok är att HTTP-status koden är 200 om hämtningen lyckas
     if (!response.ok) {
       throw new Error(`HTTP error status ${response.status}`);
     }
 
-    // Väntar in till datat har parsats (översatts) till ett JS objekt
     const data = await response.json();
 
-    // Kör display funktion
     displayCv(data.work, data.education);
-
-    console.log("Inne i asynkrona funktion getTodos()");
   } catch (error) {
     console.error("Type of error", error);
   }
 }
 
 function displayCv(work, education) {
-  // Hämta referens i DOM:en, ul
   const workList = document.getElementById("work-list");
   const educationList = document.getElementById("education-list");
 
-  // Skapa ett li-element för varje todo
   work.forEach(function (work) {
     const li = document.createElement("li");
     li.classList.add("cv-work-item");
@@ -169,7 +142,6 @@ async function getFeaturedRepos(username, repoNames) {
     return;
   }
 
-  // Show loading state
   projectList.innerHTML = `
     <li class="loading-message">
       <i class="fa-solid fa-spinner fa-spin"></i>
@@ -178,7 +150,6 @@ async function getFeaturedRepos(username, repoNames) {
   `;
 
   try {
-    // Fetch all repos at once
     const repoPromises = repoNames.map((repoName) =>
       fetch(`https://api.github.com/repos/${username}/${repoName}`).then(
         (res) => (res.ok ? res.json() : null)
@@ -186,8 +157,6 @@ async function getFeaturedRepos(username, repoNames) {
     );
 
     const repos = await Promise.all(repoPromises);
-
-    // Filter out any failed fetches (null values)
     const validRepos = repos.filter((repo) => repo !== null);
 
     if (validRepos.length === 0) {
@@ -195,14 +164,13 @@ async function getFeaturedRepos(username, repoNames) {
     }
 
     displayProjects(validRepos);
-    console.log(`Loaded ${validRepos.length} featured projects`);
   } catch (error) {
     console.error("Error fetching featured repos:", error);
     displayErrorMessage();
   }
 }
 
-// Usage - just list the repos you want to show
+//VISA ENDAST DESSA REPON
 getFeaturedRepos("snudde", [
   "Listening-Party-2",
   "u01---Landing-Page",
@@ -217,7 +185,6 @@ function displayProjects(repos) {
     return;
   }
 
-  // Show message if no repos
   if (repos.length === 0) {
     projectList.innerHTML =
       '<li class="no-projects">No public repositories found</li>';
@@ -230,10 +197,8 @@ function displayProjects(repos) {
     const li = document.createElement("li");
     li.classList.add("project-item");
 
-    // Get image for this project, or use default
     const imageSrc = projectImages[repo.name] || "/images/default-project.png";
 
-    // Format the update date
     const updatedDate = new Date(repo.updated_at).toLocaleDateString("sv-SE");
 
     li.innerHTML = `
